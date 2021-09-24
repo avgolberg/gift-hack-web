@@ -1,7 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.UUID"%>
-<% 
-    String uniqueID = UUID.randomUUID().toString().substring(0, 8);
-%>
 <!DOCTYPE html>
 <html>
    	<head>

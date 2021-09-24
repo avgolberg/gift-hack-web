@@ -33,6 +33,12 @@ public class DBConnection {
                              + "name VARCHAR(50), authorId INT)"
                      + "Engine=InnoDB DEFAULT CHARSET=utf8"
             );
+            cmd.executeUpdate(
+                     "CREATE TABLE IF NOT EXISTS Gifts (id int primary key auto_increment, "
+                             + "name VARCHAR(50), quantity INT, link VARCHAR(256), ranking INT,"
+                             + "comment VARCHAR(256), listId VARCHAR(8))"
+                     + "Engine=InnoDB DEFAULT CHARSET=utf8"
+            );
             
            
 //                 

@@ -24,9 +24,7 @@ public class NewListServlet extends HttpServlet{
         
      @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-                HttpSession session = ((HttpServletRequest) request).getSession();
-                
+			throws ServletException, IOException {                
                 String uniqueId = UUID.randomUUID().toString().substring(0, 8);
                 String listName = toUTF8(request.getParameter("name"));
                 String authorId = toUTF8(request.getParameter("authorId"));

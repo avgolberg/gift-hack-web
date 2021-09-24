@@ -217,7 +217,7 @@
                                             <tr>
                                                     <th scope="row"><%= i %></th>
                                                     <td><%= giftlist.getName() %></td>
-                                                    <td><a href="/GiftHack/lists/<%= giftlist.getId()%>">/GiftHack/lists/<%= giftlist.getId()%></a></td>
+                                                    <td><a href="/GiftHack/lists?id=<%= giftlist.getId()%>">/GiftHack/lists?id=<%= giftlist.getId()%></a></td>
                                                     <td>
                                                         <a href="/GiftHack/edit-list?id=<%= giftlist.getId() %>" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
                                                         <a href="/GiftHack/delete-list?id=<%= giftlist.getId() %>" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
