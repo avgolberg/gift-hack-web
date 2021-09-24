@@ -1,4 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="data.GiftList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    ArrayList<GiftList> giftLists = (ArrayList<GiftList>)request.getAttribute("lists");
+%>
 <!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -203,20 +208,23 @@
                                             <tr>
                                                     <th>#</th>
                                                     <th>Name</th>
-                                                    <th>Link to share</th>
+                                                    <th>Link to share, view and change</th>
                                                     <th>Actions</th>
                                             </tr>
                                     </thead>
                                     <tbody>
-<!--                                            <tr>
-                                                    <th scope="row">i</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
+                                        <% int i = 1; for(GiftList giftlist : giftLists){ %>
+                                            <tr>
+                                                    <th scope="row"><%= i %></th>
+                                                    <td><%= giftlist.getName() %></td>
+                                                    <td><a href="/GiftHack/lists/<%= giftlist.getId()%>">/GiftHack/lists/<%= giftlist.getId()%></a></td>
                                                     <td>
-                                                        <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                                        <a href="/GiftHack/edit-list?id=<%= giftlist.getId() %>" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                                        <a href="/GiftHack/delete-list?id=<%= giftlist.getId() %>" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
                                                     </td>
-                                            </tr>-->
+                                            </tr>
+                                            <% i++; %>
+                                        <% } %>
                                     </tbody>
                             </table>
                     </div>

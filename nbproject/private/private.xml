@@ -3,21 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeans/GiftHack/src/java/servlets/RegisterServlet.java</file>
-            <file>file:/D:/NetBeans/GiftHack/web/login.jsp</file>
-            <file>file:/D:/NetBeans/GiftHack/web/lists.jsp</file>
-            <file>file:/D:/NetBeans/GiftHack/nbproject/build-impl.xml</file>
-            <file>file:/D:/NetBeans/GiftHack/src/java/servlets/NewListServlet.java</file>
-            <file>file:/D:/NetBeans/GiftHack/src/java/filters/CheckLogin.java</file>
-            <file>file:/D:/NetBeans/GiftHack/web/static.jsp</file>
-            <file>file:/D:/NetBeans/GiftHack/src/java/servlets/ListsServlet.java</file>
-            <file>file:/D:/NetBeans/GiftHack/src/java/servlets/LoginServlet.java</file>
-            <file>file:/D:/NetBeans/GiftHack/.git/config</file>
-            <file>file:/D:/NetBeans/GiftHack/web/newList.jsp</file>
-            <file>file:/D:/NetBeans/GiftHack/src/java/filters/DbFilter.java</file>
-            <file>file:/D:/NetBeans/GiftHack/web/register.jsp</file>
-            <file>file:/D:/NetBeans/GiftHack/src/java/data/DBConnection.java</file>
-            <file>file:/D:/NetBeans/GiftHack/web/WEB-INF/web.xml</file>
+            <file>file:/D:/NetBeans/GiftHack/src/java/servlets/ListServlet.java</file>
         </group>
     </open-files>
 </project-private>

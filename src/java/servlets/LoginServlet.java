@@ -20,12 +20,12 @@ public class LoginServlet extends HttpServlet {
                
                 HttpSession session = ((HttpServletRequest) request).getSession();
               
-        if(request.getParameter("logout")!=null){
-          session.removeAttribute("username");
-          session.removeAttribute("userId");
-          ((HttpServletResponse) response).sendRedirect("/GiftHack/");
-          return;
-        }
+//        if(request.getParameter("logout")!=null){
+//          session.removeAttribute("username");
+//          session.removeAttribute("userId");
+//          ((HttpServletResponse) response).sendRedirect("/GiftHack/");
+//          return;
+//        }
             
         String username = toUTF8(request.getParameter("username"));
         String password = util.Hasher.fromString(request.getParameter("password"));
