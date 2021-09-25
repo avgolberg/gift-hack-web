@@ -236,7 +236,7 @@
                             </table>
                     </div>
                 <% } else { %>
-                          <h3> Hi, <%= session.getAttribute("username") %>! Gifts from list <%= request.getAttribute("listName") %>  are: </h3> <br/>
+                <h3> Hi, <%= session.getAttribute("username") %>! Gifts from list <strong class="text-custom"><%= request.getAttribute("listName") %></strong>  are: </h3> <br/>
                           <a href="<%=request.getContextPath()%>/new-gift?listId=<%= request.getAttribute("listId") %>" class="on-default edit-row">
                            <button type="submit" class="btn btn-default waves-effect waves-light">New Gift</button> </a>
                            <br/>

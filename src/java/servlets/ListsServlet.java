@@ -54,7 +54,7 @@ public class ListsServlet extends HttpServlet {
                 ArrayList<Gift> gifts = new ArrayList<Gift>();
                 
                 while(r1.next()){
-                    gifts.add(new Gift(parseInt(r1.getString("id")), r1.getString("name"),r1.getString("link"), 
+                    gifts.add(new Gift(r1.getInt("id"), r1.getString("name"),r1.getString("link"), 
                             parseInt(r1.getString("ranking")), parseInt(r1.getString("quantity")),r1.getString("comment"), 
                             listId));
                 }

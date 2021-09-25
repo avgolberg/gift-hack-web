@@ -27,6 +27,7 @@ public class Gift {
     
 
     public Gift(int id, String name, String link, int ranking, int quantity, String comment, String listId) {
+        this.id = id;
         this.name = name;
         this.link = link;
         this.ranking = ranking;
