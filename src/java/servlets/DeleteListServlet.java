@@ -16,7 +16,7 @@ public class DeleteListServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           if(request.getParameter("id")!=null){
-                        String listId = request.getParameter("id");
+                String listId = request.getParameter("id");
                 
                 Connection con;
                 

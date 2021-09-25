@@ -28,7 +28,7 @@
                 </div> 
 
            <div class="panel-body">
-                <form class="form-horizontal m-t-20"  action="<%=request.getContextPath()%>/new-gift" method="post">
+                <form class="form-horizontal m-t-20"  action="" method="post">
 
                     <div class="form-group ">
                         <div class="col-xs-12">

@@ -1,18 +1,38 @@
 package data;
 
 public class Gift {
+    private int id;
     private String name;
     private int quantity;
     private String link;
     private int ranking;
     private String comment;
+    private String listId;
 
-    public Gift(String name, String link, int ranking, int quantity, String comment) {
+    public String getListId() {
+        return listId;
+    }
+
+    public void setListId(String listId) {
+        this.listId = listId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+
+    public Gift(int id, String name, String link, int ranking, int quantity, String comment, String listId) {
         this.name = name;
         this.link = link;
         this.ranking = ranking;
         this.quantity = quantity;
         this.comment = comment;
+        this.listId = listId;
     }
 
     public String getName() {

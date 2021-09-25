@@ -1,8 +1,10 @@
+<%@page import="data.Gift"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="data.GiftList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     ArrayList<GiftList> giftLists = (ArrayList<GiftList>)request.getAttribute("lists");
+    ArrayList<Gift> gifts = (ArrayList<Gift>)request.getAttribute("gifts");
 %>
 <!DOCTYPE html>
 <html>
@@ -55,26 +57,30 @@
                                 <li><a href="#" class="waves-effect waves-light">Shop For</a></li>
                             </ul>
                             
-                             <ul class="nav navbar-nav hidden-xs">
+<!--                             <ul class="nav navbar-nav hidden-xs">
                                 <li><a href="#" class="waves-effect waves-light">Groups</a></li>
-                            </ul>
+                            </ul>-->
 
-                            <form role="search" class="navbar-left app-search pull-left hidden-xs">
+<!--                            <form role="search" class="navbar-left app-search pull-left hidden-xs">
 			                     <input type="text" placeholder="Find a memeber..." class="form-control">
 			                     <a href=""><i class="fa fa-search"></i></a>
-			                </form>
+			                </form>-->
 
 
                             <ul class="nav navbar-nav navbar-right pull-right">
                                 <li class="dropdown top-menu-item-xs">
                                     <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="icon-bell"></i> <span class="badge badge-xs badge-danger">3</span>
+                                        <i class="icon-bell"></i>
+<!--                                        <span class="badge badge-xs badge-danger">3</span>-->
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-lg">
-                                        <li class="notifi-title"><span class="label label-default pull-right">New 3</span>Notification</li>
+<!--                                    <ul class="dropdown-menu dropdown-menu-lg">
+                                        <li class="notifi-title">
+                                            <span class="label label-default pull-right">New 3</span>
+                                            Notification</li>
                                         <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 230px;"><li class="list-group slimscroll-noti notification-list" style="overflow: hidden; width: auto; height: 230px;">
-                                           <!-- list item-->
-                                           <a href="javascript:void(0);" class="list-group-item">
+                                            list item
+                                           <a href="javascript:javascript:void(0);" class="list-group-item"></a>                                          
+                                              <span class="label label-default pull-right">New 3</span>
                                               <div class="media">
                                                  <div class="pull-left p-r-10">
                                                     <em class="fa fa-diamond noti-primary"></em>
@@ -88,7 +94,7 @@
                                               </div>
                                            </a>
 
-                                           <!-- list item-->
+                                            list item
                                            <a href="javascript:void(0);" class="list-group-item">
                                               <div class="media">
                                                  <div class="pull-left p-r-10">
@@ -103,7 +109,7 @@
                                               </div>
                                            </a>
 
-                                           <!-- list item-->
+                                            list item
                                            <a href="javascript:void(0);" class="list-group-item">
                                               <div class="media">
                                                  <div class="pull-left p-r-10">
@@ -118,7 +124,7 @@
                                               </div>
                                            </a>
 
-                                           <!-- list item-->
+                                            list item
                                            <a href="javascript:void(0);" class="list-group-item">
                                               <div class="media">
                                                  <div class="pull-left p-r-10">
@@ -133,7 +139,7 @@
                                               </div>
                                            </a>
 
-                                            <!-- list item-->
+                                             list item
                                            <a href="javascript:void(0);" class="list-group-item">
                                               <div class="media">
                                                  <div class="pull-left p-r-10">
@@ -148,7 +154,7 @@
                                               </div>
                                            </a>
 
-                                           <!-- list item-->
+                                            list item
                                            <a href="javascript:void(0);" class="list-group-item">
                                               <div class="media">
                                                  <div class="pull-left p-r-10">
@@ -168,7 +174,7 @@
                                                 <small class="font-600">See all notifications</small>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul>-->
                                 </li>
                                 <li class="dropdown top-menu-item-xs">
                                     <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
@@ -194,7 +200,8 @@
                     <div class="content">
                             <div class="container">
                                     <!-- Page-Title -->
-                                            <h3> Hello, <%= session.getAttribute("username") %>!</h3> <br/>
+                                        <% if(giftLists!=null) { %>
+                                            <h3> Hi, <%= session.getAttribute("username") %>! Yout gift lists are: </h3> <br/>
                                            <form action="<%=request.getContextPath()%>/new-list" method="get">            
 <!--                                               <a href="/GiftHack/lists?new=1">-->
                                                    <button type="submit" class="btn btn-default waves-effect waves-light">New List</button>
@@ -228,7 +235,47 @@
                                     </tbody>
                             </table>
                     </div>
-
+                <% } else { %>
+                          <h3> Hi, <%= session.getAttribute("username") %>! Gifts from list <%= request.getAttribute("listName") %>  are: </h3> <br/>
+                          <a href="<%=request.getContextPath()%>/new-gift?listId=<%= request.getAttribute("listId") %>" class="on-default edit-row">
+                           <button type="submit" class="btn btn-default waves-effect waves-light">New Gift</button> </a>
+                           <br/>
+                           
+                           <div class="panel">
+                            
+                           <div class="p-20">
+                            <table class="table table table-hover m-0">
+                                    <thead>
+                                            <tr>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>Quantity</th>
+                                                    <th>Ranking</th>
+                                                    <th>Where to buy</th>
+                                                    <th>Comment</th>
+                                                    <th>Actions</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% int i = 1; for(Gift gift : gifts){ %>
+                                            <tr>
+                                                    <th scope="row"><%= i %></th>
+                                                    <td><%= gift.getName() %></td>
+                                                    <td><%= gift.getQuantity() %></td>
+                                                    <td><%= gift.getRanking() %></td>
+                                                    <td><%= gift.getLink() %></td>
+                                                    <td><%= gift.getComment()%></td>
+                                                    <td>
+                                                        <a href="/GiftHack/edit-gift?listId=<%= gift.getListId() %>&id=<%= gift.getId() %>" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                                                        <a href="/GiftHack/delete-gift?listId=<%= gift.getListId() %>&id=<%= gift.getId() %>" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                            </tr>
+                                            <% i++; %>
+                                        <% } %>
+                                    </tbody>
+                            </table>
+                    </div>
+                <% } %>
                 </div> <!-- content -->
 
                 

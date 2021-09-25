@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.Statement;
-import java.util.UUID;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +45,7 @@ public class NewGiftServlet extends HttpServlet{
                    request.getRequestDispatcher("static.jsp").forward(request, response);
                    return;
                 }
-                ((HttpServletResponse) response).sendRedirect("/GiftHack/lists/" + listId);
+                ((HttpServletResponse) response).sendRedirect("/GiftHack/lists?id=" + listId);
             }
         }
 
