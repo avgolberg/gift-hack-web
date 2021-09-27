@@ -203,5 +203,5 @@
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
         	
-	 <script src="assets/pages/datatables.editable.init.js"></script>
+	<script src="assets/pages/datatables.editable.init.js"></script>
 </body></html>
