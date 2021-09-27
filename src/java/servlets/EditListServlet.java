@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.UUID;
 import javax.servlet.ServletException;
@@ -17,7 +18,30 @@ public class EditListServlet extends HttpServlet{
       @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+            if(request.getParameter("id")!=null){
+                String listId = request.getParameter("id");
+                        
+                Connection con;
+                
+                 try{
+                    con = data.DBConnection.GetConnection();
+                    Statement cmd = con.createStatement();
+                    ResultSet r1 = cmd.executeQuery(
+                            "SELECT * FROM Lists WHERE `id`='" + listId + "'"
+                    );     
+                    
+                     if(r1.next()){
+                         request.setAttribute("listName", r1.getString("name"));
+                }
+                       
+                }
+                catch(Exception ex){
+                   request.setAttribute("dbError", ex.getMessage());
+                   request.getRequestDispatcher("static.jsp").forward(request, response);
+                   return;
+                }
                 request.getRequestDispatcher("editList.jsp").forward(request, response);
+                }
 	}
         
      @Override

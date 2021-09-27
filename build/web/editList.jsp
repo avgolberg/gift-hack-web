@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%     
+    String listName = (String) request.getAttribute("listName");
+%>
 <!DOCTYPE html>
 <html>
    	<head>
@@ -32,7 +35,8 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" name="name" placeholder="List name">
+                            List name:
+                            <input class="form-control" type="text" required="" name="name" value="<%= listName %>">
                         </div>
                     </div>
                     

@@ -1,10 +1,14 @@
 <%@page import="data.Gift"%>
+<%@page import="java.lang.Integer"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="data.GiftList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     ArrayList<GiftList> giftLists = (ArrayList<GiftList>)request.getAttribute("lists");
     ArrayList<Gift> gifts = (ArrayList<Gift>)request.getAttribute("gifts");
+    boolean isListAuthor = false;
+    if(request.getAttribute("authorId")!=null && request.getAttribute("authorId").equals(session.getAttribute("userId"))) isListAuthor = true;
+    int userId = Integer.parseInt((String)session.getAttribute("userId"));
 %>
 <!DOCTYPE html>
 <html>
@@ -54,7 +58,7 @@
                             </ul>
                             
                              <ul class="nav navbar-nav hidden-xs">
-                                <li><a href="#" class="waves-effect waves-light">Shop For</a></li>
+                                <li><a href="<%=request.getContextPath()%>/shop-for" class="waves-effect waves-light">Shop For</a></li>
                             </ul>
                             
 <!--                             <ul class="nav navbar-nav hidden-xs">
@@ -65,126 +69,8 @@
 			                     <input type="text" placeholder="Find a memeber..." class="form-control">
 			                     <a href=""><i class="fa fa-search"></i></a>
 			                </form>-->
-
-
                             <ul class="nav navbar-nav navbar-right pull-right">
-                                <li class="dropdown top-menu-item-xs">
-                                    <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="icon-bell"></i>
-<!--                                        <span class="badge badge-xs badge-danger">3</span>-->
-                                    </a>
-<!--                                    <ul class="dropdown-menu dropdown-menu-lg">
-                                        <li class="notifi-title">
-                                            <span class="label label-default pull-right">New 3</span>
-                                            Notification</li>
-                                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 230px;"><li class="list-group slimscroll-noti notification-list" style="overflow: hidden; width: auto; height: 230px;">
-                                            list item
-                                           <a href="javascript:javascript:void(0);" class="list-group-item"></a>                                          
-                                              <span class="label label-default pull-right">New 3</span>
-                                              <div class="media">
-                                                 <div class="pull-left p-r-10">
-                                                    <em class="fa fa-diamond noti-primary"></em>
-                                                 </div>
-                                                 <div class="media-body">
-                                                    <h5 class="media-heading">A new order has been placed A new order has been placed</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                           </a>
-
-                                            list item
-                                           <a href="javascript:void(0);" class="list-group-item">
-                                              <div class="media">
-                                                 <div class="pull-left p-r-10">
-                                                    <em class="fa fa-cog noti-warning"></em>
-                                                 </div>
-                                                 <div class="media-body">
-                                                    <h5 class="media-heading">New settings</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                           </a>
-
-                                            list item
-                                           <a href="javascript:void(0);" class="list-group-item">
-                                              <div class="media">
-                                                 <div class="pull-left p-r-10">
-                                                    <em class="fa fa-bell-o noti-custom"></em>
-                                                 </div>
-                                                 <div class="media-body">
-                                                    <h5 class="media-heading">Updates</h5>
-                                                    <p class="m-0">
-                                                        <small>There are <span class="text-primary font-600">2</span> new updates available</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                           </a>
-
-                                            list item
-                                           <a href="javascript:void(0);" class="list-group-item">
-                                              <div class="media">
-                                                 <div class="pull-left p-r-10">
-                                                    <em class="fa fa-user-plus noti-pink"></em>
-                                                 </div>
-                                                 <div class="media-body">
-                                                    <h5 class="media-heading">New user registered</h5>
-                                                    <p class="m-0">
-                                                        <small>You have 10 unread messages</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                           </a>
-
-                                             list item
-                                           <a href="javascript:void(0);" class="list-group-item">
-                                              <div class="media">
-                                                 <div class="pull-left p-r-10">
-                                                    <em class="fa fa-diamond noti-primary"></em>
-                                                 </div>
-                                                 <div class="media-body">
-                                                    <h5 class="media-heading">A new order has been placed A new order has been placed</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                           </a>
-
-                                            list item
-                                           <a href="javascript:void(0);" class="list-group-item">
-                                              <div class="media">
-                                                 <div class="pull-left p-r-10">
-                                                    <em class="fa fa-cog noti-warning"></em>
-                                                 </div>
-                                                 <div class="media-body">
-                                                    <h5 class="media-heading">New settings</h5>
-                                                    <p class="m-0">
-                                                        <small>There are new settings available</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                           </a>
-                                        </li><div class="slimScrollBar" style="background: rgb(152, 166, 173); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-                                        <li>
-                                            <a href="javascript:void(0);" class="list-group-item text-right">
-                                                <small class="font-600">See all notifications</small>
-                                            </a>
-                                        </li>
-                                    </ul>-->
-                                </li>
-                                <li class="dropdown top-menu-item-xs">
-                                    <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0)"><i class="ti-user m-r-10 text-custom"></i> Profile</a></li>
-                                        <li><a href="javascript:void(0)"><i class="ti-settings m-r-10 text-custom"></i> Settings</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="/GiftHack/login?logout=1"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="/GiftHack/login?logout=1"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
@@ -265,10 +151,28 @@
                                                     <td><%= gift.getRanking() %></td>
                                                     <td><%= gift.getLink() %></td>
                                                     <td><%= gift.getComment()%></td>
+                                                    <% if(isListAuthor){ %>
                                                     <td>
                                                         <a href="/GiftHack/edit-gift?listId=<%= gift.getListId() %>&id=<%= gift.getId() %>" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
                                                         <a href="/GiftHack/delete-gift?listId=<%= gift.getListId() %>&id=<%= gift.getId() %>" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
                                                     </td>
+                                                     <% } else { %>
+                                                       <% if(gift.isReserved()) { %>
+                                                          <% if(gift.getReservedBy()== userId) { %>
+                                                          <td>
+                                                            <a href="/GiftHack/release-gift?listId=<%= gift.getListId() %>&id=<%= gift.getId() %>" class="on-default edit-row"><i class="md md-lock-outline"></i></a>
+                                                          </td>
+                                                          <% } else { %>
+                                                          <td>
+                                                            <a href="" class="on-default edit-row"><i class="md md-lock-outline"></i></a>
+                                                          </td>
+                                                            <% } %>
+                                                        <% } else { %>
+                                                        <td>
+                                                         <a href="/GiftHack/reserve-gift?listId=<%= gift.getListId() %>&id=<%= gift.getId() %>" class="on-default edit-row"><i class="md md-lock-open"></i></a>
+                                                        </td>
+                                                        <% } %>
+                                                     <% } %>
                                             </tr>
                                             <% i++; %>
                                         <% } %>

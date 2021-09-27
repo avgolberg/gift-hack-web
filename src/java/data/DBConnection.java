@@ -39,6 +39,11 @@ public class DBConnection {
                              + "comment VARCHAR(256), listId VARCHAR(8))"
                      + "Engine=InnoDB DEFAULT CHARSET=utf8"
             );
+            cmd.executeUpdate(
+                     "CREATE TABLE IF NOT EXISTS ReservedGifts (giftId int primary key, "
+                             + "userId int)"
+                     + "Engine=InnoDB DEFAULT CHARSET=utf8"
+            );
             
            
 //                 
