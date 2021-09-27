@@ -35,7 +35,7 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            List name:
+                            <div class="col-xs-12" style="padding: 0 0 10px 5px;">List name:</div>
                             <input class="form-control" type="text" required="" name="name" value="<%= listName %>">
                         </div>
                     </div>

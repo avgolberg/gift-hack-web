@@ -39,35 +39,35 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            Gift name:
+                            <div class="col-xs-12" style="padding: 0 0 10px 5px;">Gift name:</div>
                             <input class="form-control" type="text" required="" name="name" value="<%= giftName %>">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
-                            Quantity:
+                            <div class="col-xs-12" style="padding: 0 0 10px 5px;">Quantity:</div>
                             <input class="form-control" type="text" required="" name="quantity" value="<%= quantity %>">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
-                            Where to buy (link, shop name...):
+                            <div class="col-xs-12" style="padding: 0 0 10px 5px;">Where to buy (link, shop name...):</div>
                             <input class="form-control" type="text" required="" name="link" value="<%= link %>">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
-                            Ranking 1 to 5:
+                             <div class="col-xs-12" style="padding: 0 0 10px 5px;">Ranking 1 to 5:</div>
                             <input class="form-control" type="text" required="" name="ranking" value="<%= ranking %>">
                         </div>
                     </div>
                     
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            Comment: 
+                            <div class="col-xs-12" style="padding: 0 0 10px 5px;">Comment:</div>
                             <input class="form-control" type="text" name="comment" value="<%= comment %>">
                         </div>
                     </div>

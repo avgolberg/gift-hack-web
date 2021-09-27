@@ -59,19 +59,14 @@
                             <button class="btn btn-info btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
                         </div>
                     </div>
-
-                    <div class="form-group m-t-30 m-b-0">
-                        <div class="col-sm-12">
-                            <a href="#" class="text-dark"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
-                        </div>
-                    </div>
+                    
                 </form> 
 
                 </div>   
                 </div>                              
                     <div class="row">
                     <div class="col-sm-12 text-center">
-                            <p>Don't have an account? <a href="<%=request.getContextPath()%>/register" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                            <p>Don't have an account?<a href="<%=request.getContextPath()%>/register" class="text-primary m-l-5"><b>Sign Up</b></a></p>
                         </div>
                 </div>
             </div>

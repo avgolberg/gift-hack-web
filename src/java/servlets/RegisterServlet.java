@@ -10,13 +10,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
         @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-            String username = toUTF8(request.getParameter("username"));
+                HttpSession session = ((HttpServletRequest) request).getSession();
+                String username = toUTF8(request.getParameter("username"));
                 String name = toUTF8(request.getParameter("name"));
 		String surname = toUTF8(request.getParameter("surname"));
 		String email = toUTF8(request.getParameter("email"));
@@ -39,6 +41,14 @@ public class RegisterServlet extends HttpServlet {
                         );
                             
                         request.setAttribute("registration", "User registered successfully!");
+                        
+                         ResultSet res = cmd.executeQuery( "SELECT * FROM Users WHERE username = '" + username + "' AND password = '" + password + "'" ) ;
+                        if (res.next()){
+                            session.setAttribute("username", res.getString("name"));
+                            session.setAttribute("userId", res.getString("id"));
+                            ((HttpServletResponse) response).sendRedirect("/GiftHack/lists");
+                        }
+                        
                     }
                     else{
                         request.setAttribute("registration", "Username has already been used.");
@@ -58,8 +68,6 @@ public class RegisterServlet extends HttpServlet {
                     request.getRequestDispatcher("static.jsp").forward(request, response);
                     return;
                  }
-                 
-		request.getRequestDispatcher("lists.jsp").forward(request, response);
 	}
 
         @Override

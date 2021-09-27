@@ -35,7 +35,7 @@
             <div class="topbar">
 
                 <!-- LOGO -->
-                <div class="topbar-left">
+                <div class="topbar-left" style="width: 210px;">
                     <div class="text-center">
                         <a href="<%=request.getContextPath()%>/lists" class="logo"><span><img src="assets/images/logo_white.png" height="55"/></span></a>
                     </div>
@@ -58,16 +58,6 @@
                                 <li><a href="<%=request.getContextPath()%>/shop-for" class="waves-effect waves-light">Shop For</a></li>
                             </ul>
                             
-<!--                             <ul class="nav navbar-nav hidden-xs">
-                                <li><a href="#" class="waves-effect waves-light">Groups</a></li>
-                            </ul>-->
-
-<!--                            <form role="search" class="navbar-left app-search pull-left hidden-xs">
-			                     <input type="text" placeholder="Find a memeber..." class="form-control">
-			                     <a href=""><i class="fa fa-search"></i></a>
-			                </form>-->
-
-
                             <ul class="nav navbar-nav navbar-right pull-right">
                                 <li><a href="/GiftHack/login?logout=1"> Logout</a></li>
                             </ul>
@@ -80,12 +70,12 @@
 
             <!-- Start right Content here -->
             <!-- ============================================================== -->
-            <div class="content-page">
+            <div class="content-page" style="margin-left: 20px;">
                     <!-- Start content -->
                     <div class="content">
                             <div class="container">
                                     <!-- Page-Title -->
-                            <h3> Hi, <%= session.getAttribute("username") %>! Reserved gifts by you are: </h3> <br/>
+                            <h3>Reserved gifts by you are: </h3> <br/>
                           
                            <div class="panel">
                             

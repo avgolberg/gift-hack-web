@@ -38,7 +38,7 @@
             <div class="topbar">
 
                 <!-- LOGO -->
-                <div class="topbar-left">
+                <div class="topbar-left" style="width: 210px;">
                     <div class="text-center">
                         <a href="<%=request.getContextPath()%>/lists" class="logo"><span><img src="assets/images/logo_white.png" height="55"/></span></a>
                     </div>
@@ -49,7 +49,6 @@
                     <div class="container">
                         <div class="">
                             <div class="pull-left">
-                                
                                 <span class="clearfix"></span>
                             </div>
 
@@ -61,16 +60,8 @@
                                 <li><a href="<%=request.getContextPath()%>/shop-for" class="waves-effect waves-light">Shop For</a></li>
                             </ul>
                             
-<!--                             <ul class="nav navbar-nav hidden-xs">
-                                <li><a href="#" class="waves-effect waves-light">Groups</a></li>
-                            </ul>-->
-
-<!--                            <form role="search" class="navbar-left app-search pull-left hidden-xs">
-			                     <input type="text" placeholder="Find a memeber..." class="form-control">
-			                     <a href=""><i class="fa fa-search"></i></a>
-			                </form>-->
                             <ul class="nav navbar-nav navbar-right pull-right">
-                                <li><a href="/GiftHack/login?logout=1"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
+                                <li><a href="/GiftHack/login?logout=1"> Logout</a></li>
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
@@ -81,7 +72,7 @@
 
             <!-- Start right Content here -->
             <!-- ============================================================== -->
-            <div class="content-page">
+            <div class="content-page" style="margin-left: 20px;">
                     <!-- Start content -->
                     <div class="content">
                             <div class="container">
@@ -129,7 +120,7 @@
                            
                            <div class="panel">
                             
-                           <div class="p-20">
+                           <div class="p-20" style="margin-top: 25px;">
                             <table class="table table table-hover m-0">
                                     <thead>
                                             <tr>

@@ -23,8 +23,8 @@ public class ListsServlet extends HttpServlet {
     }
     
     private void lists(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-         HttpSession session = ((HttpServletRequest) request).getSession();
-        int authorId = parseInt((String)session.getAttribute("userId"));
+            HttpSession session = ((HttpServletRequest) request).getSession();
+            int authorId = parseInt((String)session.getAttribute("userId"));
             if(request.getParameter("id")==null){
             try{
                 Connection con = data.DBConnection.GetConnection();

@@ -17,6 +17,7 @@
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
         <script src="web/assets/js/modernizr.min.js"></script>
+        
         </head>
     <body>
          <div class="account-pages"></div>
@@ -32,25 +33,25 @@
 
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" name="name" placeholder="Gift name">
+                            <input class="form-control" parsley-trigger="change" type="text" required="" name="name" placeholder="Gift name">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" name="quantity" placeholder="Quantity">
+                            <input class="form-control" data-parsley-type="number"  type="text" required="" name="quantity" placeholder="Quantity">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" name="link" placeholder="Where to buy (link, shop name...)">
+                            <input class="form-control" parsley-trigger="change" type="text" required="" name="link" placeholder="Where to buy (link, shop name...)">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" name="ranking" placeholder="Ranking 1 to 5">
+                            <input class="form-control" data-parsley-min="1" data-parsley-max="5" type="text" required="" name="ranking" placeholder="Ranking 1 to 5">
                         </div>
                     </div>
                     
@@ -62,7 +63,7 @@
                     
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="hidden"  name="authorId" value="<%= session.getAttribute("userId") %>">
+                            <input class="form-control" type="hidden" name="authorId" value="<%= session.getAttribute("userId") %>">
                         </div>
                     </div>
 
@@ -75,6 +76,10 @@
             </div>   
             </div>
         </div>
+                        
+        <script>
+                var resizefunc = [];
+        </script>
                   <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
@@ -93,7 +98,11 @@
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
-        
         <script type="text/javascript" src="assets/plugins/parsleyjs/parsley.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                    $('form').parsley();
+            });
+        </script>
     </body>
 </html>
