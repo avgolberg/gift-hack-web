@@ -12,27 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/new-gift")
 public class NewGiftServlet extends HttpServlet{
-     @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+        @Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                 request.getRequestDispatcher("newGift.jsp").forward(request, response);
 	}
         
-     @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {                
-              if(request.getParameter("listId")!=null){    
-            
+        @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {                
+            if(request.getParameter("listId")!=null){    
                 String giftName = toUTF8(request.getParameter("name"));
                 String quantity = toUTF8(request.getParameter("quantity"));
                 String ranking = toUTF8(request.getParameter("ranking"));
                 String comment = toUTF8(request.getParameter("comment"));
                 String link = toUTF8(request.getParameter("link"));
                 String listId = (String)request.getParameter("listId");
-                
                 Connection con;
-                
-                 try{
+                try{
                     con = data.DBConnection.GetConnection();
                     Statement cmd = con.createStatement();
                     cmd.executeUpdate(

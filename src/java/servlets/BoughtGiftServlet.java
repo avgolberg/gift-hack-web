@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/bought-gift")
 public class BoughtGiftServlet extends HttpServlet{
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             if(request.getParameter("id")!=null){
                 HttpSession session = ((HttpServletRequest) request).getSession();
                 int userId = parseInt((String)session.getAttribute("userId"));
                 String giftId = request.getParameter("id");              
                 Connection con;
-                 try{
+                try{
                     con = data.DBConnection.GetConnection();
                     Statement cmd = con.createStatement();
                     cmd.executeUpdate(

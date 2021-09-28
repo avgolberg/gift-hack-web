@@ -40,28 +40,28 @@
                     <div class="form-group ">
                         <div class="col-xs-12">
                             <div class="col-xs-12" style="padding: 0 0 10px 5px;">Gift name:</div>
-                            <input class="form-control" type="text" required="" name="name" value="<%= giftName %>">
+                            <input class="form-control" parsley-trigger="change" type="text" required="" name="name" value="<%= giftName %>">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
                             <div class="col-xs-12" style="padding: 0 0 10px 5px;">Quantity:</div>
-                            <input class="form-control" type="text" required="" name="quantity" value="<%= quantity %>">
+                            <input class="form-control" data-parsley-type="number" type="text" required="" name="quantity" value="<%= quantity %>">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
                             <div class="col-xs-12" style="padding: 0 0 10px 5px;">Where to buy (link, shop name...):</div>
-                            <input class="form-control" type="text" required="" name="link" value="<%= link %>">
+                            <input class="form-control" parsley-trigger="change" type="text" required="" name="link" value="<%= link %>">
                         </div>
                     </div>
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
                              <div class="col-xs-12" style="padding: 0 0 10px 5px;">Ranking 1 to 5:</div>
-                            <input class="form-control" type="text" required="" name="ranking" value="<%= ranking %>">
+                            <input class="form-control" data-parsley-min="1" data-parsley-max="5" type="text" required="" name="ranking" value="<%= ranking %>">
                         </div>
                     </div>
                     
@@ -81,6 +81,10 @@
             </div>   
             </div>
         </div>
+                        
+        <script>
+                var resizefunc = [];
+        </script>
                   <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
@@ -101,5 +105,10 @@
 
         
         <script type="text/javascript" src="assets/plugins/parsleyjs/parsley.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                    $('form').parsley();
+            });
+        </script>
     </body>
 </html>

@@ -1,6 +1,5 @@
 package data;
 
-
 public class ReservedGift {
     private int giftId;
     private String giftName;
@@ -85,8 +84,4 @@ public class ReservedGift {
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
     }
-    
-    
-    
-    
 }

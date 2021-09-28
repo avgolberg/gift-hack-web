@@ -84,7 +84,8 @@ public class ListsServlet extends HttpServlet {
                
                 r1.close();
                 request.getRequestDispatcher("lists.jsp").forward(request, response);
-            } catch (Exception ex) {
+            } 
+            catch (Exception ex) {
                request.setAttribute("dbError", ex.getMessage());
                request.getRequestDispatcher("static.jsp").forward(request, response);
                return;
@@ -94,13 +95,14 @@ public class ListsServlet extends HttpServlet {
     
     private int reservedBy(HttpServletRequest request, HttpServletResponse response, int giftId) throws ServletException, IOException{
         try{
-                Connection con = data.DBConnection.GetConnection();
-                Statement cmd = con.createStatement();
-                ResultSet r2 = cmd.executeQuery("SELECT userId FROM reservedgifts WHERE giftId='" + giftId +  "'");
-                if(r2.next()){
-                   return r2.getInt("userId");
-                }
-        }catch (Exception ex) {
+            Connection con = data.DBConnection.GetConnection();
+            Statement cmd = con.createStatement();
+            ResultSet r2 = cmd.executeQuery("SELECT userId FROM reservedgifts WHERE giftId='" + giftId +  "'");
+            if(r2.next()){
+            return r2.getInt("userId");
+            }
+        }
+        catch (Exception ex) {
                request.setAttribute("dbError", ex.getMessage());
                request.getRequestDispatcher("static.jsp").forward(request, response);
                return 0;
@@ -108,10 +110,8 @@ public class ListsServlet extends HttpServlet {
         return 0;
     }
         
-      @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-                lists(request, response);
-	}
-        
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        lists(request, response);
+    }
 }

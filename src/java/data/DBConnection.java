@@ -2,16 +2,13 @@ package data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 
 public class DBConnection {
     private static Connection con;
     
-    public static Connection GetConnection() 
-            throws ClassNotFoundException, SQLException {
+    public static Connection GetConnection() throws ClassNotFoundException, SQLException {
         if(con == null){
             Class.forName("com.mysql.cj.jdbc.Driver");
             String connectionString = "jdbc:mysql://localhost:3306/gift_hack" // Размещение БД
@@ -44,12 +41,6 @@ public class DBConnection {
                              + "userId int)"
                      + "Engine=InnoDB DEFAULT CHARSET=utf8"
             );
-            
-           
-//                 
-//        stm.executeUpdate( "insert into Users values( 11, 'user1', '"
-//                + util.Hasher.fromString( "123" ) + "', 'User One' )" ) ;
-//            System.out.println("OK");
         }
         return con;
     }

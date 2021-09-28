@@ -39,7 +39,7 @@
                     
                      <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" data-parsley-type="number"  type="text" required="" name="quantity" placeholder="Quantity">
+                            <input class="form-control" data-parsley-type="number" type="text" required="" name="quantity" placeholder="Quantity">
                         </div>
                     </div>
                     

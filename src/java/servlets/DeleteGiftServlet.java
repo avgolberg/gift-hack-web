@@ -1,4 +1,3 @@
-
 package servlets;
 
 import java.io.IOException;
@@ -12,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/delete-gift")
 public class DeleteGiftServlet extends HttpServlet{
-      @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           if(request.getParameter("listId")!=null && request.getParameter("id")!=null){
                 String listId = request.getParameter("listId");
                 String id = request.getParameter("id");
                 Connection con;
-                 try{
+                try{
                     con = data.DBConnection.GetConnection();
                     Statement cmd = con.createStatement();
                     cmd.executeUpdate(

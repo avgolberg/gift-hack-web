@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/reserve-gift")
 public class ReserveGiftServlet extends HttpServlet{
-       @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             if(request.getParameter("listId")!=null && request.getParameter("id")!=null){
                 HttpSession session = ((HttpServletRequest) request).getSession();
@@ -21,7 +21,7 @@ public class ReserveGiftServlet extends HttpServlet{
                 String giftId = request.getParameter("id");
                 String listId = request.getParameter("listId");                
                 Connection con;
-                 try{
+                try{
                     con = data.DBConnection.GetConnection();
                     Statement cmd = con.createStatement();
                     cmd.executeUpdate(

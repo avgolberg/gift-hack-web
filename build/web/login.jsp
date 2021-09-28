@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%     
-    String userName = (String) session.getAttribute( "username" ) ;
-    
+<%         
     String error = (String) request.getAttribute("loginError");
     
     boolean loginError = false;
@@ -29,7 +27,6 @@
 	</head>
         <body>
 
-          <%--if( userName == null ) { --%>
             <div class="account-pages"></div>
             <div class="clearfix"></div>
             <div class="wrapper-page">
@@ -70,7 +67,6 @@
                         </div>
                 </div>
             </div>
-                            <%-- else {  ((HttpServletResponse) response).sendRedirect("/GiftHack/lists"); } --%>
     	<script>
             var resizefunc = [];
         </script>

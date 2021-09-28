@@ -15,8 +15,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
         @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                 HttpSession session = ((HttpServletRequest) request).getSession();
                 String username = toUTF8(request.getParameter("username"));
                 String name = toUTF8(request.getParameter("name"));
@@ -26,8 +25,7 @@ public class RegisterServlet extends HttpServlet {
                 String password = util.Hasher.fromString(request.getParameter("password"));
                 
                 Connection con;
-                
-                 try{
+                try{
                     con = data.DBConnection.GetConnection();
                     Statement cmd = con.createStatement();
                     ResultSet r = cmd.executeQuery("SELECT COUNT(*) AS rowcount FROM Users WHERE username='" + username +  "'");
@@ -39,16 +37,14 @@ public class RegisterServlet extends HttpServlet {
                             "INSERT INTO Users (username, name, surname, email, birthday, password) VALUES "
                             + "('" + username + "', '" + name + "', '" + surname + "', '" + email + "', '" +  birthday + "', '" + password +  "')"
                         );
-                            
                         request.setAttribute("registration", "User registered successfully!");
                         
-                         ResultSet res = cmd.executeQuery( "SELECT * FROM Users WHERE username = '" + username + "' AND password = '" + password + "'" ) ;
+                        ResultSet res = cmd.executeQuery( "SELECT * FROM Users WHERE username = '" + username + "' AND password = '" + password + "'" ) ;
                         if (res.next()){
                             session.setAttribute("username", res.getString("name"));
                             session.setAttribute("userId", res.getString("id"));
                             ((HttpServletResponse) response).sendRedirect("/GiftHack/lists");
                         }
-                        
                     }
                     else{
                         request.setAttribute("registration", "Username has already been used.");
@@ -60,7 +56,6 @@ public class RegisterServlet extends HttpServlet {
 
                         request.getRequestDispatcher("register.jsp").forward(request, response);
                     }
-                    
                  }
                  catch(Exception ex){
                     request.setAttribute("registration", "User is not registered!");
@@ -71,12 +66,11 @@ public class RegisterServlet extends HttpServlet {
 	}
 
         @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
                 request.getRequestDispatcher("register.jsp").forward(request, response);
 	}
 
-	 private String toUTF8(String parameter){
+	private String toUTF8(String parameter){
             byte[] bytes = parameter.getBytes(StandardCharsets.ISO_8859_1);
             return new String(bytes, StandardCharsets.UTF_8);
         }

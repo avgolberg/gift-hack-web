@@ -11,6 +11,29 @@ public class Gift {
     private boolean isReserved;
     private int reservedBy;
 
+      public Gift(int id, String name, String link, int ranking, int quantity, String comment, String listId, boolean isReserved, int reservedBy) {
+        this.id = id;
+        this.name = name;
+        this.link = link;
+        this.ranking = ranking;
+        this.quantity = quantity;
+        this.comment = comment;
+        this.listId = listId;
+        this.isReserved = isReserved;
+        this.reservedBy = reservedBy;
+    }
+      
+    public Gift(int id, String name, String link, int ranking, int quantity, String comment, String listId, boolean isReserved) {
+        this.id = id;
+        this.name = name;
+        this.link = link;
+        this.ranking = ranking;
+        this.quantity = quantity;
+        this.comment = comment;
+        this.listId = listId;
+        this.isReserved = isReserved;
+    }
+    
     public int getReservedBy() {
         return reservedBy;
     }
@@ -34,31 +57,7 @@ public class Gift {
     public void setId(int id) {
         this.id = id;
     }
-    
-
-    public Gift(int id, String name, String link, int ranking, int quantity, String comment, String listId, boolean isReserved, int reservedBy) {
-        this.id = id;
-        this.name = name;
-        this.link = link;
-        this.ranking = ranking;
-        this.quantity = quantity;
-        this.comment = comment;
-        this.listId = listId;
-        this.isReserved = isReserved;
-        this.reservedBy = reservedBy;
-        
-    }
- public Gift(int id, String name, String link, int ranking, int quantity, String comment, String listId, boolean isReserved) {
-        this.id = id;
-        this.name = name;
-        this.link = link;
-        this.ranking = ranking;
-        this.quantity = quantity;
-        this.comment = comment;
-        this.listId = listId;
-        this.isReserved = isReserved;
-        
-    }
+      
     public boolean isReserved() {
         return isReserved;
     }
@@ -106,6 +105,4 @@ public class Gift {
     public void setComment(String comment) {
         this.comment = comment;
     }
-    
-    
 }

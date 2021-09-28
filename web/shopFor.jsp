@@ -5,7 +5,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     ArrayList<ReservedGift> reservedGifts = (ArrayList<ReservedGift>)request.getAttribute("reservedGifts");
-    int userId = Integer.parseInt((String)session.getAttribute("userId"));
 %>
 <!DOCTYPE html>
 <html>

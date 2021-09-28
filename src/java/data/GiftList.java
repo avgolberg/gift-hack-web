@@ -5,6 +5,12 @@ public class GiftList {
     private String name;
     private int authorId;
 
+    public GiftList(String id, String name, int authorId) {
+        this.id = id;
+        this.name = name;
+        this.authorId = authorId;
+    }
+    
     public String getId() {
         return id;
     }
@@ -28,12 +34,4 @@ public class GiftList {
     public void setAuthorId(int authorId) {
         this.authorId = authorId;
     }
-
-    public GiftList(String id, String name, int authorId) {
-        this.id = id;
-        this.name = name;
-        this.authorId = authorId;
-    }
-    
-    
 }
